@@ -19,7 +19,7 @@
 //phle fn k end m just ; hona chahiye 
 
 
-//using arrow
+//using arrow unnamed iife
 (() => {
     console.log('DB CONNECTED Arrow ');
 })();
@@ -30,7 +30,7 @@
 // 'hitesh' hai jaise chai('hitesh") m karte ham 
 
 
-//using arrow
+//using arrow unnamed iife
 ((name) => {
     console.log(`DB CONNECTED TWO ${name}`);
 })('hitesh')
