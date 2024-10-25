@@ -27,7 +27,8 @@ if (Object.keys(emptyObj).length === 0) {
 
 let val1;
 // val1 = 5 ?? 10
-// val1 = null ?? 10
+// val1 = null ?? 10 //yaha 10 milegi kyunki kabhihi interner par se null values aa jati hai 
+// use handle karen k liye kiya jata hai yh 
 // val1 = undefined ?? 15
 val1 = null ?? 10 ?? 20
 

@@ -2,9 +2,7 @@
 
 // alert( 3 + 3) // we are using nodejs, not browser
 
-console.log(3 
-    +
-     3) // code readability should be high
+console.log(3 + 3)
 
 console.log("Hitesh")
 
@@ -13,6 +11,7 @@ let name = "hitesh"
 let age = 18
 let isLoggedIn = false
 let state;
+// let state =null; // check type of both the varivles
 
 // number => 2 to power 53
 // bigint
@@ -26,4 +25,6 @@ let state;
 // object
 
 console.log(typeof undefined); // undefined
+//OR
+console.log(typeof (undefined)); // undefined
 console.log(typeof null); // object

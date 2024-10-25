@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>htnml Events </title>
 </head>
+
 <body style="background-color: #414141; color: aliceblue;">
     <h2>Amazing image</h2>
-    <div >
+    <div>
         <ul id="images">
-            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
-            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
-            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
-            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
-            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
             <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
         </ul>
-   </div>
+    </div>
 </body>
 <script>
+
+    //<<<<<<====================== ====================>>>>>>
+
+    // hme evetnlistner se hme browser k events aur sath hi sath enviroments k events milte hai 
+    // jaise ki jb event perform hua tb us timestamp , height , widht etc to check all use broser and perform any event then
+    // see the cosnsole propertiy part
+
+
+    //note that  tag k andr ya function se onclick likhna accha nhi manaa jata hai  nahi 
+    //reason hai ki us fuctionality se hame sirf kuch properties hi milti hai [par agr ham 
+    // eventlistner ka use karte hai to usse direct onclick s kaafi saari jyada fuctionality milti 
+    //  so it's recommended ki ap waha event se us pr kuch onclick par alert de 
+
+
     // document.getElementById('owl').onclick = function(){
     //     alert("owl clicked")
     // }
 
-     // attachEvent()
+    //other method to this same as event listenr for same working above
+    // attachEvent()
     // jQuery - on
 
+
+    // yh sab ham event listnener k help se phchan sakte hai 
     // type, timestamp, defaultPrevented
     // target, toElement, srcElement, currentTarget,
     // clientX, clientY, screenX, screenY
@@ -33,31 +62,60 @@
 
     // document.getElementById('images').addEventListener('click', function(e){
     //     console.log("clicked inside the ul");
-    // }, false)
+    // }, false) 
+
+    // yaha alse yh bydefault hota hai agr is argument ko hata hi de to koii bhi prolem nahi hia
+    //false/true yaha event propagation k liye hota hai ev.propagation k do context hote hai 
+    //1.event Bubling 2. Event Capturing
+
+    //see notes for this 
+
 
     // document.getElementById('owl').addEventListener('click', function(e){
     //     console.log("owl clicked");
     //     e.stopPropagation()
     // }, false)
-    
+
     // document.getElementById('google').addEventListener('click',function(e){
     //     e.preventDefault();
     //     e.stopPropagation()
     //     console.log("google clicked");
     // }, false)
-   
-    
-    document.querySelector('#images').addEventListener('click', function(e){
-        console.log(e.target.tagName);
-        if (e.target.tagName === 'IMG') {
-            console.log(e.target.id);
-            let removeIt = e.target.parentNode
-            removeIt.remove()
-        }
-    
-        
+
+    //<<<<<<====================== ====================>>>>>>
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        // console.log(e);// isse event aayega like mouse event pointer event click event 
+        // console.log(e.target);// isse karne se yaha par jis event pr event perform hua hai wo aayegea
+        //agr main yha img pr event paefrorm kara hau hai to yaha par img tag aa jayega 
+
+        // console.log(e.target.tagName); //tag ka name aayega 
+        console.log(e.target.parentNode); //img pr click kya to img tag ka parent node li hai aur li ka ul hai 
+
+
+        // ul>li>img 
+        let rem = e.target.parentNode;
+        // let rem = e.target.parentNode.parentNode;   //try this also 
+        //method 1 to remove element 
+
+        // rem.remove(); //agr img pr click kra to uska parent li remove ho jayega 
+        //    img pr click kra to uska parent li aur uska par ul pura remove ho jayega
+
+        //method 2 for remove any element
+
+
+        // if (e.target.tagName === 'IMG') {
+        //     console.log(e.target.id);
+        //     let removeIt = e.target.parentNode
+        //     removeIt.remove()
+        // }
+
+
     })
-    
+
+
     //removeIt.parentNode.removeChild(removeIt)
+
 </script>
+
 </html>

@@ -1,6 +1,6 @@
 //  Primitive
 
-//  7 types : String, Number, Boolearn, null, undefined, Symbol, BigInt
+//  7 types : String, Number, Boolean, null, undefined, Symbol, BigInt
 
 const score = 100
 const scoreValue = 100.3
@@ -28,7 +28,7 @@ let myObj = {
     age: 22,
 }
 
-const myFunction = function(){
+const myFunction = function () {
     console.log("Hello world");
 }
 
