@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    
+
     <title>DOM learning</title>
     <style>
-        .bg-black{
+        .bg-black {
             background-color: #212121;
             color: #fff;
         }
     </style>
 </head>
+
 <body class="bg-black">
-    <div >
-        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+    <div>
+        <h1 id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">web text</span></h1>
         <h2>Lorem ipsum dolor sit.</h2>
         <h2>Lorem ipsum dolor sit.</h2>
         <h2>Lorem ipsum dolor sit.</h2>
@@ -28,4 +30,117 @@
         </ul>
     </div>
 </body>
+<script>
+    /* elm get karne k tarike etcs are below
+    document.getElementById
+    document.getElementsByClassName */
+
+    //ek bar isse jo value aayegi brower pr return hoke wo check kare 
+    document.getElementById("title")
+    document.getElementById('title') // both are correct
+
+    //id class  Attribute get karna us elm ka 
+    document.getElementById('title').id
+    document.getElementById('title').className
+    document.getElementById('title').getAttribute('id')
+    // Syntax attr name , new attr value
+    document.getElementById('title').setAttribute('id', 'newTitle');
+
+    //now use this var as shortcut
+    const title = document.getElementById('title')
+
+    title.id
+    title.className
+    title.getAttribute('class')
+
+    /* js se styling karna */
+
+    //elm . style. key value pair ko style.key = 'value'
+    title.style.padding = "15px"
+    title.style.backgroundColor = 'lightblue';
+
+    //yh niche k saare code browser console par chalye 
+
+    /* DIFFERENCE IN INNERTEXT , TEXTCONTENT , INNERHTML */
+
+    //inner text hme wo text deta hai jo ki sirf display pr visible hota hai jo hide hota hai 
+    // use nhi dikhat  hai 
+    document.getElementById('title').innerText
+    // 'DOM learning on Chai aur code'
+
+    //text content hme pura content deta hai jo ki hidden bhi hai
+    //  yani css property se hata diya hai fir bhi 
+    document.getElementById('title').textContent
+    // 'DOM learning on Chai aur code web text'
+
+
+    //innerHtml hme pura html value deta hai 
+    document.getElementById('title').innerHTML
+    // 'DOM learning on Chai aur code <span style="display: none;">web text</span>'
+
+
+    /* USES OF QuerySelector AND QuerySelectorAll 
+    QuerySelector hame yaha par sirf jo selection lagaya ha un saaro m se bas phla wala deta hai 
+    QuerySelectorAll hame jo selection lagaya ha un saare Selectors ko dega
+     */
+
+    document.querySelector('h2') // tag selection
+    document.querySelector('#title') // id selction
+    document.querySelector('.heading') // class selction
+    document.querySelector('input[type = "password"]') // attrb selction
+    document.querySelector('p:first_child') // attrb selction
+
+    /* CHANGE VALUES THROUGH querySelector */
+    const turnGreen = document.querySelector('li');
+    turnGreen.style.color = "green"
+
+    /* CHANGE VALUES THROUGH querySelectorAll
+    jab ham query selector all use karte h to us selector se return value aayegi wo kuch bhi ho skti hai 
+    to please be ccarefull as kbhi kbhi NODELIST , ARRAYLIST , COLLECTIONLIST  return hoti hai aur teeno m difference hota hai 
+    yh pure array nhi h
+    to inke kya kya methods given hai wo ham browser se select krkr waha console par run karke bad me ham wha saare 
+    methods ko prototype se dekh sakte hai 
+    for exapmle 
+    hm nodelist k prototype m forEach define hai par map nahi hai 
+    similiar 
+    */
+
+    //For a NodeList 
+    const tempList = document.querySelectorAll(li); // return a node list 
+    //wrong 
+    tempList.style.color = "green"
+    // yh kaam nahi karega kyunki nodelist hai array nhi hai 
+
+    // but hm whole list ko green na karkr sirf single elm ko kar skte hai for ex;
+    tempList[0].style.color = "green";
+
+    //Solution for above 
+    // to ise 2 tarike se kar skte hai nodelist ko array me convert karkr ya nodelist k 
+    // prorotype pr given hai ki this supports forEach
+
+
+    tempList.forEach(function (li) {
+        li.style.color = "green"
+    })
+
+
+    //For a HTMLCollection List
+    const tempClassList = document.getElementsByClassName('list-item');
+    //this will return HTML Collection
+    //iske protytypr me map and forEach nhi hai
+    //yh wrong hai isiliye not supported the forEach
+    tempClassList.forEach(function (i) {
+        i.style.color = "blue"
+    })
+
+    //to ise convert karke karenge 
+    const myConvertedArray = Array.from(tempClassList) // now this is converted to array list which hash foreach and map also 
+    myConvertedArray.forEach(function (it) {
+        it.style.color = "blue"
+    })
+
+
+
+</script>
+
 </html>

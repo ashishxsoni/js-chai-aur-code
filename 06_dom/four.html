@@ -1,43 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chai aur code | DOM</title>
 </head>
+
 <body style="background-color: #212121; color: #fff;">
     <ul class="language">
         <li>Javascript</li>
     </ul>
 </body>
 <script>
-    function addLanguage(langName){
+    function addLanguage(langName) {
         const li = document.createElement('li');
         li.innerHTML = `${langName}`
         document.querySelector('.language').appendChild(li)
     }
     addLanguage("python")
     addLanguage("typescript")
+    //this above method is not good respt to time kyunki yh har baar pura tree travrsal k baad fir add karta hai elm ko 
+    // jisse yha par time Complexity inc h jayegi
 
-    function addOptiLanguage(langName){
+
+    //This is an Optimal Method
+    function addOptiLanguage(langName) {
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(langName))
         document.querySelector('.language').appendChild(li)
+        //language is that main elem where we have to add it
     }
     addOptiLanguage('golang')
 
-    //Edit
+    //Edit replace karna phle se bane elm i values ko ya kuch changes karna
     const secondLang = document.querySelector("li:nth-child(2)")
-    console.log(secondLang);
+    console.log(secondLang); //see this 
+    //To change the text but this is not optimised approach
+
     //secondLang.innerHTML = "Mojo"
+
+    //Method 2 Optimised
     const newli = document.createElement('li')
-    newli.textContent = "Mojo"
+    // newli.textContent = "Mojo"
+    //or
+    newLi.appendChild(document.createTextNode('Mojo'));
+
     secondLang.replaceWith(newli)
 
-    //edit
+    //edit Another method to replace 
     const firstLang = document.querySelector("li:first-child")
-    firstLang.outerHTML = '<li>TypeScript</li>'
+    firstLang.outerHTML = '<li>TypeScript</li>' //this is the method
 
     //remove
     const lastLang = document.querySelector('li:last-child')
@@ -45,4 +59,5 @@
 
 
 </script>
+
 </html>

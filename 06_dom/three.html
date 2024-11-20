@@ -1,26 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chai aur code </title>
 </head>
+
 <body style="background-color: #212121; color: #fff;">
-    
+
 </body>
 <script>
-    const div = document.createElement('div')
+    /* THIS IS ABOUT HOW TO CREATE ElementOR ADD NEW ELMEMNTS IN JS  */
+
+    /* hm createElement se elm create kar lete hai but wo page pr render ya display nhi hota hai reason h ki 
+    to uske liye hme further yha elm ko append karna rhta hai  let's understand ths further
+     */
+    const div = document.createElement('div') // DIV TAG IS CREATED WITH EMPTY TEXT CONTENT 
+
     console.log(div);
     div.className = "main"
     div.id = Math.round(Math.random() * 10 + 1)
+
+    /* NOTE : here understand one thing that direct div.id and div.className use karne yh toda time taking hai 
+    rather than use ki 
+    div.setAttribute("class" , "main") , and it's recommended ki aise hi use kare ham  */
+
     div.setAttribute("title", "generated title")
+    //adding CSS Property to elm 
     div.style.backgroundColor = "green"
     div.style.padding = "12px"
-    // div.innerText = "Chai aur code"
-    const addText = document.createTextNode("Chai aur code")
-    div.appendChild(addText)
 
+    // now how to display that elm to our window 
+    //Method 1 
+    // div.innerText = "Chai aur code"
+
+    // METHOD 2 AND MOST EFFICIENT 
+    const addText = document.createTextNode("Chai aur code")
+    //APPEND CHILD SE YH AISE ADD HO JAYEGA US PARTICULER ELM PAR 
+    div.appendChild(addText)
+    //or 
+    document.querySelector('div').appendChild(addText)
+
+    // FINAL STEP NOW ADD THIS TO GLOBAL WINDOW KYUNI HM BODY ME ADD KAR RHE HAI FOR REFERENCE DEKHO TREE VIEW 
+    // ISKA 
     document.body.appendChild(div)
+
+
 </script>
+
 </html>

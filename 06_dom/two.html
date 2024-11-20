@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM | Chai aur code</title>
 </head>
+
 <body style="background-color: #212121; color: #fff;">
     <div class="parent">
         <!-- this is a comment -->
@@ -16,24 +18,50 @@
     </div>
 </body>
 <script>
-    const parent = document.querySelector('.parent')
-    // console.log(parent);
-    // console.log(parent.children);
-    // console.log(parent.children[1].innerHTML);
+    const par = document.querySelector('.parent')
+    /* isse hmne parent class select kar liya hai basically ham normally jb bhi query selectror use  kar rhe hote hai
+    to wo elm ko pura thread k thorugh k through check karta hai aur ek tree banata hai root se har elm attrb ka 
+    see notes for better understanding
+ */
 
-    // for (let i = 0; i < parent.children.length; i++) {
-    //      console.log(parent.children[i].innerHTML);
-        
+    /* basically har elm k pssa children property hoti hai aur yh hme HTML Collection return karta hai
+       jisse hm elm pr ab oprs kar kste hai directly par se hme HTML  COllection nhi mila tha 
+    
+    */
+
+
+    // console.log(par);
+    // console.log(par.children);
+    // console.log(par.children[1].innerHTML);
+
+    // for (let i = 0; i < par.children.length; i++) {
+    //      console.log(par.children[i].innerHTML);
+
     // }
+
+    //Styling
     parent.children[1].style.color = "orange"
-    // console.log(parent.firstElementChild);
-    // console.log(parent.lastElementChild);
+
+    /* To access the first and last lem if we already traverse the main elem than don't use agian QuerySelector beacuse 
+    yh costly hota hai aur isse hame baar baar problem hota hai time taken to diectly yh already ek tree banate hue aaya hai 
+    to hm yaha dorect uske child, parent,Sibling, first and last elm aise hi access karenge to yh time efficent hoga  */
+
+    // console.log(par.firstElementChild);
+    // console.log(par.lastElementChild);
 
     const dayOne = document.querySelector('.day')
     // console.log(dayOne);
     // console.log(dayOne.parentElement);
     // console.log(dayOne.nextElementSibling);
 
+
+    /*    NOTE : yh childeNodes elm wo jo hme display ho rha hai wo nahi dikahata hai yh hme saare elms including break line comment etcs ko 
+       bhi nodes manta hai to unka bhi count  rakht hai  */
+
     console.log("NODES: ", parent.childNodes);
+
+
+
 </script>
+
 </html>

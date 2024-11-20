@@ -1,3 +1,4 @@
+//yh ham yaha par hm object banaya hai 
 // const user = {
 //     username: "hitesh",
 //     loginCount: 8,
@@ -7,34 +8,52 @@
 //         //console.log("Got user details from database");
 //         // console.log(`Username: ${this.username}`);
 //         console.log(this);
+//     },
+//     sayGreet:function(){
+//         console.log("User say GoodMorning");
+//     },
+//     sayHello(){
+//         console.log("User say hello");
 //     }
 
 // }
-
+// user.sayHello();
+// user.sayGreet();
 
 
 //console.log(user.username)
 //console.log(user.getUserDetails());
-// console.log(this); //yh different context m diff hota gai yha yh node k liye e,pty aayega pr 
+// console.log(this); //yh different context m diff hota hai yha yh node k liye empty aayega pr 
 //global (browser) context  m yh window object deta hai 
 
 //<<<<<<==============  =============================  =====================>>>>>>
 
-//this is equivalent to below code to make a class
+//see this than below code this is equivalent to below code to make a class
 // class User {
 //     constructor(username, loginCount, isLoggedIn) {
 //         this.username = username;
 //         this.loginCount = loginCount;
 //         this.isLoggedIn = isLoggedIn;
 
-//         this.greeting = function () {
+//         this.greeting = function () { // yha yh this lagana hi hoga yh greeting ek variable hai jisme yh function store kara rha hai ham
 //             console.log(`Welcome ${this.username}`);
 
 //         };
 
-//         return this;
+//         return this; // it's optional here 
 //     }
+
+// sayHello(){
+//     console.log("Hello User");
 // }
+// }
+
+ /* this is an error kyunki jab bhi ham object ko class constructror se create karenge to wo bina new keyword k nhi 
+ ho skta  hai possible nhi hai khyunki constructror new se hi bind hota hai */
+ 
+// const u1 = User("Ashish" , "1" ,true);
+// const u1 = new User("Ashish" , "1" ,true);
+// u1.sayHello();
 
 
 //this is equivalent to below code here we're making a class 
@@ -45,16 +64,23 @@ function User(username, loginCount, isLoggedIn) {
     this.logCount = loginCount;
     this.isLoggedIn = isLoggedIn
 
-    this.greeting = function () { //yh is User class m ek function h jise construct k through bana rhe hai 
+    this.greeting = function () { //yh is User class m ek variable me hm store kara rhe hai is function ko jo construct k through bana rha hai 
         //yh initialise kar rhe hai
         console.log(`Welcome ${this.username}`);
 
     }
-    // hma yah yh return this optional hai jab new se creation ho const funct ka to hm  likhe ya nakkhe yh implicitly define hota hai to bhi return karta hi hai
+     /* NOTE :========>>> */
+    // hma yah yh return this optional hai jab new se creation ho const funct ka to hm  likhe ya na likhe yh implicitly define hota hai to bhi return karta hi hai
     return this //optional  hai new se create karenge tab as defined implictly no effect
 }
 
+/* CHECK THIS HERE */
 
+// const u1 = User("Ashish" , "1" ,true);
+// const u2 = User("soni" , "2" ,true);
+console.log(u1);
+// console.log(u1.greeting);
+// u1.greeting();
 
 
 // Constructor function more example 
@@ -101,3 +127,6 @@ console.log(userOne)
 // console.log(usOne);
 // console.log(usOne.constructor); //this tells that we have a constructor function of User
 //console.log(usTwo);
+
+/* there is difference with using new keyword 
+check the notes.md file also */

@@ -1,74 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Closure aur chai</title>
-</head>
-<body style="background-color: #313131;">
+  </head>
+  <body style="background-color: #313131">
     <button id="orange">Orange</button>
     <button id="green">Green</button>
-</body>
+  </body>
 
-    <script>
+  <script>
+    /* This is an Example of Lexical Scoping
+            closure ka basically means h ki hm kisi outer function k andr agr inner functions h to hm waha 
+         inner function me outer function ka scope accessible rhta hai  */
+
     // function init() {
-    //     let name = "Mozilla"; 
+    //     let name = "Mozilla";
     //     function displayName() {
-    //         console.log(name); 
+    //         console.log(name);
     //     }
     //     displayName();
     // }
     // init();
 
+    /* Lexical Scoping me hm agr kisi function k andr kuch declarations hai to us outer function k scope members ko inner functions ko access rhta hai 
+pr Global context me hme bs function access kar skte hai directly ham waha par us global m declare function ke kisi member ko direct access
+nhi kar sakte hai see below exmple
+siblings aps me scope nhi kar sakte hai 
+outer wala inner wale functions ka scope nhi le skta hai 
+inner wla outer se le skta hai 
+OUTER AND INNER APS ME MEMORY SHARE KRTE HAI  */
+
     // function outer(){
     //     let username = "hitesh"
-    //     console.log("OUTER", secret);
+    //     console.log("OUTER", secret);// yh nhi allowed ki outer me inner ko access kar sake
     //     function inner(){
     //         let secret = "my123"
-    //         console.log("inner", username);
+    //         console.log("inner", username); // this is ok
     //     }
     //     function innerTwo(){
-    //         console.log("innerTwo", username);
-    //         console.log(secret);
+    //         console.log("innerTwo", username); // this is ok
+    //         console.log(secret); //yh nhi chalega sibling share nhi karenge
     //     }
     //     inner()
     //     innerTwo()
 
     // }
     // outer()
-    // console.log("TOO OUTER", username);
+    // console.log("TOO OUTER", username); //aceess globla context ,e declare function ka scope memeber ERROR hai yh
 
+    //NOW UNDERSTAND CLOSURE FROM HERE
 
-    // function makeFunc() {
-    //     const name = "Mozilla";
-    //     function displayName() {
-    //         console.log(name);
+    /*KISI FUNCTION KA SCOPE TAB TK RHTA HAI JAB TAK WO EXECUTE HOTA HAI 
+JB HM INNER FUNCTIN KO RETURN KARTE HAI TO SIRF USKA FUNCTION EXECUTION CONTEXT NHI JATA HAI USKA KHUD KA 
+FUNCTION EXECUTION CONTEXT AUR SATH HI ME FIR USKA WO MEMORY PART BHI JATA HAI JO OUTER SE MEMORY SHARE KAR RHO HO LIKE KI AGR 
+INNER KUCH ACCESS KAR RHA HAI OUTER KA TO WO WALA SHARE CONREXT OUTER KA BHI JATA HAI YANI USKA PURA LEXICAL SCOPE JATA HAI
+TO CLEARLT WO FUNC EXECTN RETURN NHI KARTA H WO PURA LEXICAL SCOPE RETURN KARTA HAI 
+*/
+
+    //  function makeFunc() {
+    //         const name = "Mozilla";
+    //         const email ="a@a.com"
+    //         function displayName() {
+    //             console.log(name);
+    //         }
+    //         return displayName; // YAHA HM RETURN KAR RHE HAI
     //     }
-    //     return displayName;
+
+    //     const myFunc = makeFunc();
+    //console.log(myFunc)
+    //     myFunc();
+  </script>
+  <script>
+    //agr 100 button ho to aise likhna coplicated hoga isiliye clickhandler function bana lete hai ham fir uska use karenge
+    // document.getElementById("orange").onclick = function(){
+    //     document.body.style.backgroundColor = `orange`
+    // }
+    // document.getElementById("green").onclick = function(){
+    //     document.body.style.backgroundColor = `green`
     // }
 
-    // const myFunc = makeFunc();
-    // myFunc();
+    /* onclick ko ek function chahiye ota hai  
+car agr hm clickhandler1 ko dekhe to hm onlcick ko ek clickhandler1 dete h to yh as expeccted work nhi kareg kyunki 
+yh yaha par direct docum.body.style se color kar de rha hai yani pura function load ho ja rha hai instant yani 
+yaha yh function dierectwork kar rhe hai usme stor karane ke jagh hmne wo execute kara diya , yani 
+usme jb bhi bar bar button click hoga wo work nhi karega kyunki onclick ko callback function chahoye yaha hmne use direcr function 
+ka signature se jo changes karne the wo directly execute kar diye hai 
+isse fir wo yaha yh code likhte ho execute ho ja rha hai na ki onclick pr click krne k se effectable hai 
+*/
 
-    </script>
-    <script>
-        // document.getElementById("orange").onclick = function(){
-        //     document.body.style.backgroundColor = `orange`
-        // }
-        // document.getElementById("green").onclick = function(){
-        //     document.body.style.backgroundColor = `green`
-        // }
+    function clickHandler_1(color) {
+      document.body.style.backgroundColor = `${color}`;
+    }
 
-        function clickHandler(color){
-            // document.body.style.backgroundColor = `${color}`
+    //yha lexical scoping hai isse yh acche se work kareg yani ab jb bhi onclick hoga tb hi background color change hoga usse phle nhi
+    function clickHandler(color) {
+      //function changeColor(){
+      //  document.body.style.backgroundColor = `${color}`
+      //}
+      //return changeColor;
 
-            return function(){
-                document.body.style.backgroundColor = `${color}`
-            }
-        }
-
-        document.getElementById('orange').onclick = clickHandler("orange")
-        document.getElementById('green').onclick = clickHandler("green")
-
-    </script>
+      //or do directly this  both are same
+      return function () {
+        document.body.style.backgroundColor = `${color}`;
+      };
+    }
+    document.getElementById("orange").onclick = clickHandler("orange");
+    document.getElementById("green").onclick = clickHandler("green");
+  </script>
 </html>
