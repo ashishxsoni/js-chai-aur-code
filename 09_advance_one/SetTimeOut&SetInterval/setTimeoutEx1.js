@@ -10,6 +10,7 @@ setTimeout(() => {
 function greet(name) {
     console.log(`Hello, ${name}!`);
 }
+//here greet is a callback function
 
 setTimeout(greet, 3000, "Alice");  // "Alice" will be passed as a parameter to the greet function
 

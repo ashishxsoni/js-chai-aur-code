@@ -21,6 +21,8 @@
 
     console.log(div);
     div.className = "main"
+    //or
+    //   div.classList.add('main');
     div.id = Math.round(Math.random() * 10 + 1)
 
     /* NOTE : here understand one thing that direct div.id and div.className use karne yh toda time taking hai 
@@ -28,6 +30,9 @@
     div.setAttribute("class" , "main") , and it's recommended ki aise hi use kare ham  */
 
     div.setAttribute("title", "generated title")
+
+    div.removeAttribute('title');
+
     //adding CSS Property to elm 
     div.style.backgroundColor = "green"
     div.style.padding = "12px"
@@ -40,6 +45,8 @@
     const addText = document.createTextNode("Chai aur code")
     //APPEND CHILD SE YH AISE ADD HO JAYEGA US PARTICULER ELM PAR 
     div.appendChild(addText)
+    //div.removeChild(addText);
+
     //or 
     document.querySelector('div').appendChild(addText)
 
