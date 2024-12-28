@@ -1,11 +1,6 @@
-function sanitize(msg){
-             
-let arr = Array.from(msg);
-for( let i=0;i<msg.length;i++){
-    arr[i]= msg.charAt(i)==='x' ?'*':msg.charAt(i);
+async function greet() {
+    return "helloWorld"
 }
-    arr=arr.join("");
-    return arr;
-
-}
-console.log(sanitize("1/2x3+4-2"));
+const sayGreet = greet();
+console.log(typeof sayGreet);  //object
+console.log(sayGreet); 

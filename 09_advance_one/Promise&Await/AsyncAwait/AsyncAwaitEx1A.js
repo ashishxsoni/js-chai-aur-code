@@ -21,10 +21,10 @@ const currentTime = function () {
     const currentTime = new Date();  // Get the current date and time
     return currentTime.toLocaleTimeString();
 }
-console.log("Hello JS Start")
+console.log(`Hello JS Start ${currentTime()}`);
 //ACCESSE  SAME PROMISE TWICE SEE RESULTS 
 // ========>> CASE 1
-async function getdataAwait() {
+async function getdataAwait2() {
     //js engine await till promise to be consumed
     console.log(`Funct Await starting cur time ${currentTime()}`);
 
@@ -42,6 +42,7 @@ async function getdataAwait() {
     console.log(`Namaste java Script 2 ${currentTime()}`);
     console.log(val2);
 }
+// getdataAwait2();
 //============================>>  Behind the Scenes Story 
 
 /* Let's break it down step by step:
@@ -123,19 +124,20 @@ Its execution context is popped off the call stack. */
 
 
 //NOW ACCESING SAME BUT USING FUNCTION PROMISE
-// ========>> CASE 2
-// async function getdataAwait() {
-//js engine await till promise to be consumed
-// console.log(`Funct Await starting cur time ${currentTime()}`);
-//yh fetch data function h iska memory jb yh call hoga tb seprate bnta hai memory heap me
-// const val1 = await fetchData(5000); // WITH 5 SECONDS DELAY
-// console.log(`Namaste java Script 1 ${currentTime()}`);
-// console.log(val1);
+// =========================================================>> CASE 2
 
-// const val2 = await fetchData(5000);
-// console.log(`Namaste java Script 2 ${currentTime()}`);
-// console.log(val2);
-// }
+async function getdataAwait() {
+/* js engine await till promise to be consumed
+console.log(`Funct Await starting cur time ${currentTime()}`);
+yh fetch data function h iska memory jb yh call hoga tb seprate bnta hai memory heap me */
+const val1 = await fetchData(5000); // WITH 5 SECONDS DELAY
+console.log(`Namaste java Script 1 ${currentTime()}`);
+console.log(val1);
+
+const val2 = await fetchData(5000);
+console.log(`Namaste java Script 2 ${currentTime()}`);
+console.log(val2);
+}
 
 
 getdataAwait();

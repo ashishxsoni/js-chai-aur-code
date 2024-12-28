@@ -1,4 +1,4 @@
-const input = document.querySelector('city-input').val;
+const input = document.querySelector('city-input').value;
 const submit = document.querySelector('search_btn');
 const box = document.querySelector('weather-info');
 

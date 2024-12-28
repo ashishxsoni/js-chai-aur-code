@@ -24,7 +24,7 @@ function displaySum(a, b) {
 setInterval(displaySum, 4000, 5, 10);  // "5" and "10" will be passed to displaySum every 4 seconds
 
 
-
+// how to stop a setInterval 
 // Example 4: setInterval with anonymous function and logic
 let count = 0;
 const intervalId = setInterval(() => {

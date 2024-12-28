@@ -6,15 +6,15 @@ all will immediately reject and provide the error from the rejected promise.
  */
 
 const prom1 = new Promise((resolve) => {
-    setTimeout(() => resolve("Promise 1 Resolved"), 5000); // 5 seconds delay
+    setTimeout(() => resolve(`Promise 1 Resolved ${currentTime()}`), 5000); // 5 seconds delay
 });
 
 const prom2 = new Promise((resolve) => {
-    setTimeout(() => resolve("Promise 2 Resolved"), 10000); // 10 seconds delay
+    setTimeout(() => resolve(`Promise 2 Resolved ${currentTime()}`), 10000); // 10 seconds delay
 });
 
 const prom3 = new Promise((resolve) => {
-    setTimeout(() => resolve("Promise 3 Resolved"), 15000); // 15 seconds delay
+    setTimeout(() => resolve(`Promise 3 Resolved ${currentTime()}`), 15000); // 15 seconds delay
 });
 
 const currentTime = function () {

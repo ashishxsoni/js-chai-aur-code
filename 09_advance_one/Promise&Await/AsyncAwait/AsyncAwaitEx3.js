@@ -13,13 +13,13 @@ inka creation memery me abhi hi hua hai */
 
 const prom1 = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve("Promise 1 Resolved Value!!");
+        resolve(`Promise 1 Resolved Value!! ${currentTime()}`);
     }, 5000);
 
 });
 const prom2 = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve("Promise 2 Resolved Value!!");
+        resolve(`Promise 2 Resolved Value!!${currentTime()}`);
     }, 10000);
 
 });
@@ -104,21 +104,22 @@ async function getdataAwait() {
 
 //AFTER REVERSING THE TIME DELAY NOW SEE DIFFERENCE 
 
-// async function getdataAwait() {
-//     console.log(`Funct Await starting cur time ${currentTime()}`);
+async function getdataAwaitRev() {
+    console.log(`Funct Await starting cur time ${currentTime()}`);
 
-//     const val1 = await prom2; // WITH 10 SECONDS DELAY
-//     console.log(`Namaste java Script 1 ${currentTime()}`);
-//     console.log(val1);
-//     console.log(`Middle of both ${currentTime()}`);
+    const val1 = await prom2; // WITH 10 SECONDS DELAY
+    console.log(`Namaste java Script 1 ${currentTime()}`);
+    console.log(val1);
+    console.log(`Middle of both ${currentTime()}`);
 
-//     const val2 = await prom1; //WITH 5 SECONDS DELAY
-//     console.log(`Namaste java Script 2 ${currentTime()}`);
-//     console.log(val2);
-// }
+    const val2 = await prom1; //WITH 5 SECONDS DELAY
+    console.log(`Namaste java Script 2 ${currentTime()}`);
+    console.log(val2);
+}
 
-getdataAwait()
-console.log("hello India Script 2");
+getdataAwait();
+// getdataAwaitRev();
+console.log("hello India Script End");
 
   
 //BEHIND THE SCENE STORY DEKHE NICHE

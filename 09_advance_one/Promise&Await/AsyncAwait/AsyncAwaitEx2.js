@@ -53,22 +53,23 @@ async function getdataAwait() {
 
 //AFTER REVERSING THE TIME DELAY NOW SEE DIFFERENCE 
 
-// async function getdataAwait() {
-//     //js engine await till promise to be consumed 
-//     console.log(`Funct Await starting cur time ${currentTime()}`);
+async function getdataAwaitRev() {
+    //js engine await till promise to be consumed 
+    console.log(`Funct Await starting cur time ${currentTime()}`);
 
-//     const val1 = await fetchData(10000); // WITH 10 SECONDS DELAY
-//     console.log(`Namaste java Script 1 ${currentTime()}`);
-//     console.log(val1);
-//     console.log(`Middle of both ${currentTime()}`);
+    const val1 = await fetchData(10000); // WITH 10 SECONDS DELAY
+    console.log(`Namaste java Script 1 ${currentTime()}`);
+    console.log(val1);
+    console.log(`Middle of both ${currentTime()}`);
 
-//     const val2 = await fetchData(5000); //WITH 5 SECONDS DELAY
-//     console.log(`Namaste java Script 2 ${currentTime()}`);
-//     console.log(val2);
-// }
+    const val2 = await fetchData(5000); //WITH 5 SECONDS DELAY
+    console.log(`Namaste java Script 2 ${currentTime()}`);
+    console.log(val2);
+}
+getdataAwaitRev();
+// getdataAwait()
 
 
 
-getdataAwait()
-console.log("hello India Script 2");
+console.log("hello India End Program");
 

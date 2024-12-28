@@ -50,7 +50,7 @@ async function getdataAwait() {
 
 //AFTER REVERSING THE TIME DELAY NOW SEE DIFFERENCE 
 
-async function getdataAwait() {
+async function getdataAwaitRev() {
     //js engine await till promise to be consumed 
     console.log(`Funct Await starting cur time ${currentTime()}`);
 
@@ -80,6 +80,7 @@ async function getdataAwait() {
 
 
 
-getdataAwait()
-console.log("hello India Script 2");
+// getdataAwait();
+getdataAwaitRev();
+console.log("hello India Script End");
 

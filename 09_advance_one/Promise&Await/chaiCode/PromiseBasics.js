@@ -10,6 +10,7 @@
 //<<<<<<=========  ============ ==========  ==========>>>>>>
 
 // Creating a Promise
+//Promise Always takes a callBack Function 
 let promise = new Promise(function (resolve, reject) {
     // Do something async (e.g., an API call, file reading)
     let success = true; // Simulate an async task
@@ -154,4 +155,19 @@ step1()
 
 
 //<<<<<<=========  ============ ==========  ==========>>>>>>
+
+function fetchData(shouldResolve) {
+    return new Promise((resolve, reject) => {
+        console.log("Fetching data...");
+
+        setTimeout(() => {
+            if (shouldResolve) {
+                resolve("Data fetched successfully!");
+            } else {
+                reject("Failed to fetch data.");
+            }
+        }, 3000); // Simulates a 3-second delay
+    });
+}
+
 //<<<<<<=========  ============ ==========  ==========>>>>>>

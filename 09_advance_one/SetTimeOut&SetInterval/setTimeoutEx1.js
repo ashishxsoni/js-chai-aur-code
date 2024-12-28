@@ -33,3 +33,17 @@ setTimeout(() => {
 }, 1500);
 
 
+// Set a timeout to display a message after 5 seconds
+const timeoutId = setTimeout(() => {
+    console.log("This message will not appear because the timeout is cleared.");
+}, 5000);
+
+console.log("Timeout is set, but will be cleared in 2 seconds.");
+
+// Clear the timeout after 2 seconds
+setTimeout(() => {
+    clearTimeout(timeoutId);
+    console.log("The timeout has been cleared.");
+}, 2000);
+
+

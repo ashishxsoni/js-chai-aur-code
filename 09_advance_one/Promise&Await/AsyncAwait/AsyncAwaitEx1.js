@@ -4,6 +4,7 @@
 
 
 const prom = new Promise((resolve, reject) => {
+    console.log("Promise starts Globally first")
     setTimeout(() => {
         resolve("Promise Resolved Value!!");
     }, 5000);
@@ -24,7 +25,9 @@ ruka rahgea wha par uske baad us particular thread m jo bhi aaya hoga wo Execute
 
 
 function getdata() {
-    prom.then((data) => console.log(data));
+    prom.then((data) => console.log(data)); 
+    // then ab micro task queue me register ho gaya ab jaise hi available 
+    // hoga aur main stack khali hoga to sbse phle picro tasQ execution hoga yani yh
     console.log("Namste java Script");
 }
 
